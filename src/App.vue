@@ -4,16 +4,31 @@
   </section>
 </template>
 
+<!-- ╾────────────────────────────────────────────────────────────────────╼ -->
 <script>
+import { ref } from 'vue';
+
 export default {
-  data() {
+  setup() {
+    const uName = ref('Maximilian');
+
+    setTimeout(() => {
+      uName.value = 'Anna';
+    }, 2000);
+
     return {
-      userName: 'Maximilian',
+      userName: uName,
     };
   },
+  // data() {
+  //   return {
+  //     userName: 'Maximilian',
+  //   };
+  // },
 };
 </script>
 
+<!-- ╾────────────────────────────────────────────────────────────────────╼ -->
 <style>
 * {
   box-sizing: border-box;

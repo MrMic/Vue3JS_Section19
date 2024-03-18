@@ -11,7 +11,13 @@ import { reactive } from 'vue';
 
 // const userName = ref('Maximilian');
 // const age = ref(27);
+// const uAge = ref(31);
 const user = reactive({ name: 'Maximilian', age: 27 });
+
+// console.log(uAge, user);
+// console.log(isRef(uAge.value));
+// console.log(isRef(uAge));
+// console.log(isReactive(user.name), user.age);
 
 setTimeout(() => {
   // userName.value = 'Max';
@@ -20,6 +26,11 @@ setTimeout(() => {
   user.name = 'Max';
   user.age = 32;
 }, 2000);
+
+// const userRefs = toRefs(user);
+// console.log(userRefs);
+// console.log(userRefs.name, userRefs.age);
+// console.log(userRefs.name.value, userRefs.age.value);
 
 // return { userName: uName, age: uAge };
 </script>

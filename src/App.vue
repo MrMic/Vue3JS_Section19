@@ -2,30 +2,30 @@
   <section class="container">
     <h2>{{ user.name }}</h2>
     <h3>{{ user.age }}</h3>
+    <h3>{{ uColor }}</h3>
+    <button @click="setAge">Change Age</button>
   </section>
 </template>
 
 <!-- ╾────────────────────────────────────────────────────────────────────╼ -->
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 
 // const userName = ref('Maximilian');
 // const age = ref(27);
 // const uAge = ref(31);
-const user = reactive({ name: 'Maximilian', age: 27 });
+const uColor = ref('red'); // NOTE: ref()
+const user = reactive({ name: 'Maximilian', age: 27 }); // NOTE: reactive()
+
+const setAge = function SetNewAge() {
+  user.age++;
+  uColor.value = 'blue';
+};
 
 // console.log(uAge, user);
 // console.log(isRef(uAge.value));
 // console.log(isRef(uAge));
 // console.log(isReactive(user.name), user.age);
-
-setTimeout(() => {
-  // userName.value = 'Max';
-  // age.value = 32;
-  // user.value = { name: 'Max', age: 32 };
-  user.name = 'Max';
-  user.age = 32;
-}, 2000);
 
 // const userRefs = toRefs(user);
 // console.log(userRefs);

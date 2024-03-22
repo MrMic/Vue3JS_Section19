@@ -1,7 +1,8 @@
 <template>
   <section class="container">
     <h2>{{ uName }}</h2>
-    <h3>{{ user.age }}</h3>
+    <!-- <h3>{{ user.age }}</h3> -->
+    <h3>{{ uAge }}</h3>
     <h3>{{ uColor }}</h3>
     <button @click="setAge">Change Age</button>
     <div>
@@ -11,15 +12,15 @@
   </section>
 </template>
 
-<!-- ╾────────────────────────────────────────────────────────────────────╼ -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
 <script setup>
-import { reactive, ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 
 // const userName = ref('Maximilian');
 // const age = ref(27);
-// const uAge = ref(31);
+const uAge = ref(31);
 const uColor = ref('red'); // NOTE: ref()
-const user = reactive({ name: 'Maximilian', age: 27 }); // NOTE: reactive()
+// const user = reactive({ name: 'Maximilian', age: 27 }); // NOTE: reactive()
 const firstName = ref('');
 const lastName = ref('');
 
@@ -27,9 +28,16 @@ const uName = computed(() => {
   return firstName.value + ' ' + lastName.value;
 });
 
+watch([uAge, uName], (newVals, oldVals) => {
+  console.log('New age: ', newVals[0]);
+  console.log('Old age: ', oldVals[0]);
+  console.log('New name: ', newVals[1]);
+  console.log('Old name: ', oldVals[1]);
+});
 // ______________________________________________________________________
 const setAge = function SetNewAge() {
-  user.age++;
+  // user.age++;
+  uAge.value++;
   uColor.value = 'blue';
 };
 
@@ -44,9 +52,15 @@ const setAge = function SetNewAge() {
 // console.log(userRefs.name.value, userRefs.age.value);
 
 // return { userName: uName, age: uAge };
+
+// watch: {
+//   age(val) {
+//     console.log(val);
+//   }
+// }
 </script>
 
-<!-- ╾────────────────────────────────────────────────────────────────────╼ -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
 <style>
 * {
   box-sizing: border-box;

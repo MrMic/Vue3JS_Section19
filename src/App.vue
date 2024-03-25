@@ -1,8 +1,11 @@
 <template>
   <section class="container">
-    <h2>{{ uName }}</h2>
     <!-- <h3>{{ user.age }}</h3> -->
-    <h3>{{ uAge }}</h3>
+    <user-data
+      :first-name="firstName"
+      :last-name="lastName"
+      :age="uAge"
+    ></user-data>
     <h3>{{ uColor }}</h3>
     <button @click="setAge">Change Age</button>
     <div>
@@ -16,6 +19,7 @@
 <!-- ══════════════════════════════════════════════════════════════════════ -->
 <script setup>
 import { ref, computed, watch } from 'vue';
+import UserData from './components/UserData.vue';
 
 // const userName = ref('Maximilian');
 // const age = ref(27);
@@ -26,6 +30,7 @@ const firstName = ref('');
 const lastName = ref('');
 const lastNameInput = ref(null);
 
+// ______________________________________________________________________
 const uName = computed(() => {
   return firstName.value + ' ' + lastName.value;
 });

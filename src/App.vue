@@ -7,7 +7,8 @@
     <button @click="setAge">Change Age</button>
     <div>
       <input type="text" placeholder="First Name" v-model="firstName" />
-      <input type="text" placeholder="Last Name" v-model="lastName" />
+      <input type="text" placeholder="Last Name" ref="lastNameInput" />
+      <button @click="setLastName">Set Last Name</button>
     </div>
   </section>
 </template>
@@ -18,11 +19,12 @@ import { ref, computed, watch } from 'vue';
 
 // const userName = ref('Maximilian');
 // const age = ref(27);
+// const user = reactive({ name: 'Maximilian', age: 27 }); // NOTE: reactive()
 const uAge = ref(31);
 const uColor = ref('red'); // NOTE: ref()
-// const user = reactive({ name: 'Maximilian', age: 27 }); // NOTE: reactive()
 const firstName = ref('');
 const lastName = ref('');
+const lastNameInput = ref(null);
 
 const uName = computed(() => {
   return firstName.value + ' ' + lastName.value;
@@ -34,11 +36,17 @@ watch([uAge, uName], (newVals, oldVals) => {
   console.log('New name: ', newVals[1]);
   console.log('Old name: ', oldVals[1]);
 });
+
 // ______________________________________________________________________
 const setAge = function SetNewAge() {
   // user.age++;
   uAge.value++;
   uColor.value = 'blue';
+};
+
+// ______________________________________________________________________
+const setLastName = function SetNewLastName() {
+  lastName.value = lastNameInput.value.value;
 };
 
 // console.log(uAge, user);

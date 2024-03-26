@@ -7,6 +7,21 @@
 <script setup>
 import { defineProps, computed } from 'vue';
 
+// ________________________ NOTE: defineEmits() ________________________
+/*
+import { defineEmits } from 'vue'
+// define event to emit
+const emits = defineEmits([
+  'greet'
+])
+
+function greetAlert() {
+  // emit 'greet' event to parent
+  emits('greet')
+} 
+*/
+
+// ______________________________________________________________________
 const props = defineProps(['firstName', 'lastName', 'age']);
 
 const uName = computed(() => {

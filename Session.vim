@@ -27,20 +27,23 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-8,10fold
-2,11fold
-1,12fold
-19,20fold
-27,28fold
-31,35fold
-39,42fold
-45,60fold
-16,61fold
-66,67fold
-70,71fold
-74,75fold
-78,84fold
-65,85fold
+4,7fold
+11,14fold
+2,15fold
+1,16fold
+21,22fold
+24,25fold
+34,35fold
+38,42fold
+46,49fold
+53,54fold
+57,72fold
+20,73fold
+78,79fold
+82,83fold
+86,87fold
+90,96fold
+77,97fold
 let &fdl = &fdl
 let s:l = 13 - ((12 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif

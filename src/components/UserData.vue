@@ -5,7 +5,10 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue';
+import { defineProps, computed, inject } from 'vue';
+
+// _________________________  NOTE: inject() __________________________
+const age = inject('userAge');
 
 // ________________________ NOTE: defineEmits() ________________________
 /*

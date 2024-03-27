@@ -13,7 +13,8 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +13 src/App.vue
+badd +29 src/App.vue
+badd +10 src/components/UserData.vue
 argglobal
 %argdel
 edit src/App.vue
@@ -27,30 +28,29 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-4,7fold
-11,14fold
-2,15fold
-1,16fold
-21,22fold
-24,25fold
-34,35fold
-38,42fold
-46,49fold
-53,54fold
-57,72fold
-20,73fold
-78,79fold
-82,83fold
-86,87fold
-90,96fold
-77,97fold
+7,10fold
+2,11fold
+1,12fold
+17,18fold
+20,21fold
+33,34fold
+37,41fold
+45,48fold
+52,53fold
+56,71fold
+16,72fold
+77,78fold
+81,82fold
+85,86fold
+89,95fold
+76,96fold
 let &fdl = &fdl
-let s:l = 13 - ((12 * winheight(0) + 24) / 48)
+let s:l = 29 - ((23 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 13
-normal! 02|
+keepjumps 29
+normal! 043|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

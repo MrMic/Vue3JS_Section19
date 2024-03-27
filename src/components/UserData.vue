@@ -5,10 +5,41 @@
 </template>
 
 <script setup>
-import { defineProps, computed, inject } from 'vue';
+import {
+  defineProps,
+  computed,
+  inject,
+  onBeforeMount,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted,
+} from 'vue';
 
 // _________________________  NOTE: inject() __________________________
 const age = inject('userAge');
+
+// _________________ COMPOSITION API - LIFECYCLE HOOKS _________________
+onBeforeMount(() => {
+  console.log('onBeforeMount');
+});
+onMounted(() => {
+  console.log('onMounted');
+});
+onBeforeUpdate(() => {
+  console.log('onBeforeUpdate');
+});
+onUpdated(() => {
+  console.log('onUpdated');
+});
+onBeforeUnmount(() => {
+  console.log('onBeforeUnmount');
+});
+onUnmounted(() => {
+  console.log('onUnmounted');
+});
+// ______________________________________________________________________
 
 // ________________________ NOTE: defineEmits() ________________________
 /*
